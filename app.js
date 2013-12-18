@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-  res.send('Partay!');
+  res.send('Waffle!');
 });
 
 app.listen(3000);
