@@ -3,6 +3,8 @@
   "description": "hello world test app",
   "version": "0.0.1",
   "dependencies": {
-    "express": "3.4.7"
+    "express": "3.4.7",
+    "dot": "~1.0.2",
+    "lodash": "~2.4.1"
   }
 }
