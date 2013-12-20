@@ -1,5 +1,5 @@
-module.exports = function(app) {
-  app.get('/api', function(req, res) {
-    res.send('APEYE!');
+module.exports = function(app, api) {
+  app.get('/api/method', function(req, res) {
+    res.send('Accessing the API directly: ' + api.thingy());
   });
 };

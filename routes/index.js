@@ -1,9 +1,5 @@
-module.exports = function(app) {
-  // app.get('/', function(req, res) {
-  //   res.send('HAI!');
-  // });
-
-  // require('./api')(app);
-  // require('./full')(app);
-  // require('./partial')(app);
+module.exports = function(app, api) {
+  require('./api')(app, api);
+  require('./full')(app, api);
+  require('./partial')(app, api);
 };
