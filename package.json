@@ -1,11 +1,24 @@
 {
-  "name": "hello-world",
-  "description": "hello world test app",
-  "version": "0.0.1",
+  "name": "pie",
+  "description": "Let's get this party started!",
+  "version": "0.0.0",
   "dependencies": {
     "express": "3.4.7",
     "dot": "~1.0.2",
     "lodash": "~2.4.1",
     "request": "~2.30.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-webfont": "~0.1.4",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-contrib-stylus": "~0.11.0",
+    "stylus-import-tree": "~0.1.10",
+    "load-grunt-tasks": "~0.2.1",
+    "grunt-nodemon": "~0.1.2",
+    "grunt-concurrent": "~0.4.2"
   }
 }

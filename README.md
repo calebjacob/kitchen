@@ -1,4 +1,4 @@
-pie
+Pie
 ===
 
-The ultimate combination of server and client side rendering.
+The ultimate starter kit for making delicious pie - err - web things.

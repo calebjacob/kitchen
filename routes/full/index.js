@@ -1,5 +1,5 @@
-module.exports = function(app, api) {
+module.exports = function(app) {
   app.get('/thing', function(req, res) {
-    res.send('A full page accessing the API: ' + api.thingy());
+    res.send('A full page');
   });
 };

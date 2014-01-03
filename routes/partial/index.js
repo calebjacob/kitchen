@@ -1,5 +1,5 @@
-module.exports = function(app, api) {
+module.exports = function(app) {
   app.get('/partial/thing', function(req, res) {
-    res.send('A partial accessing the API: ' + api.thingy());
+    res.send('A partial');
   });
 };
