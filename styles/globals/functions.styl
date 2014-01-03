@@ -1,3 +1,13 @@
+clearfix()
+  zoom: 1
+  &:before
+    content: ""
+    display: table
+  &:after
+    content: ""
+    clear: both
+    display: block
+
 prefix($property, $value)
   -webkit-{$property}: $value
   -moz-{$property}: $value
