@@ -12,6 +12,24 @@ module.exports = function(grunt) {
       }
     },
 
+    concurrent: {
+      dev: {
+        options: {
+          logConcurrentOutput: true
+        },
+        tasks: ['watch', 'nodemon']
+      }
+    },
+
+    nodemon: {
+      dev: {
+        options: {
+          ignoredFiles: ['node_modules/**', 'public/**', 'styles/**', 'package.json', '.gitignore', '.git/**', 'bower_components/**', 'npm_debug.log', 'README.md'],
+          file: 'app.js'
+        }
+      }
+    },
+
     stylus: {
       compile: {
         options: {
@@ -29,24 +47,6 @@ module.exports = function(grunt) {
       dist: {
         src: '<%= concat.dist.dest %>',
         dest: 'public/_dist/<%= pkg.name %>.js'
-      }
-    },
-
-    concurrent: {
-      dev: {
-        options: {
-          logConcurrentOutput: true
-        },
-        tasks: ['watch', 'nodemon']
-      }
-    },
-
-    nodemon: {
-      dev: {
-        options: {
-          ignoredFiles: ['node_modules/**', 'public/**', 'styles/**', 'package.json', '.gitignore', '.git/**', 'bower_components/**', 'npm_debug.log', 'README.md'],
-          file: 'app.js'
-        }
       }
     },
 
