@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['public/js/**/*.js', 'public/js/*.js'],
-        dest: 'public/_dist/<%= pkg.name %>.js'
+        src: ['public/js/lib/*.js', 'public/js/toolbox/*.js', 'public/js/modules/*.js', 'public/js/main.js'],
+        dest: 'public/_dist/scripts.js'
       }
     },
 
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'public/_dist/<%= pkg.name %>.css': 'styles/main.styl'
+          'public/_dist/styles.css': 'styles/main.styl'
         }
       }
     },
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'public/_dist/<%= pkg.name %>.js'
+        dest: 'public/_dist/scripts.js'
       }
     },
 

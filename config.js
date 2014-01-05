@@ -1,17 +1,23 @@
 var fs = require('fs');
 
 var environment = process.env.NODE_ENV || 'development';
-
-var environmentSpecificConfig = {
-  production: {},
-  development: {}
-};
+var port = process.env.PORT || 3000;
 
 var globalConfig = {
-  port: process.env.PORT || 3000,
+  port: port,
   environment: environment
 };
 
+var environmentSpecificConfig = {
+  production: {
+    api: ''
+  },
+  development: {
+    api: 'http://localhost:' + port + '/api'
+  }
+};
+
+// Grab any secrets
 if (fs.existsSync(__dirname + '/secrets.json')) {
   var secrets = require('./secrets');
   var globalSecrets = secrets.global;

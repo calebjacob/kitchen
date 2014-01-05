@@ -1,5 +1,11 @@
-module.exports = function(app) {
+var request = require('request');
+
+module.exports = function(app, config) {
   app.get('/thing', function(req, res) {
-    res.send('A full page');
+    request.get(config.api + '/thing', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.render('index');
+      }
+    });
   });
 };

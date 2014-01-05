@@ -1,7 +1,7 @@
-module.exports = function(app) {
+module.exports = function(app, config) {
   app.get('/api/thing', function(req, res) {
     res.send({
-      "food": "waffle",
+      "food": "wafflezzz",
       "car": "mustang"
     });
   });

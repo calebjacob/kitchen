@@ -1,5 +1,5 @@
-module.exports = function(app) {
-  require('./api')(app);
-  require('./full')(app);
-  require('./partial')(app);
+module.exports = function(app, config) {
+  require('./api')(app, config);
+  require('./full')(app, config);
+  require('./partial')(app, config);
 };
