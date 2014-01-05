@@ -1,9 +1,9 @@
 (function() {
-  var privateFunction = function() {
+  var _privateFunction = function() {
     return 'foo';
   };
 
-  modules.myModule = {
+  modules.module = {
     vars: {
       value: ':)'
     },
@@ -14,7 +14,7 @@
     },
 
     method: function() {
-      console.log('A public function returning private data: ' + privateFunction());
+      console.log('A public function returning private data: ' + _privateFunction());
     }
   };
 })();
