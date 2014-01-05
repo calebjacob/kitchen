@@ -17,13 +17,11 @@ var environmentSpecificConfig = {
   }
 };
 
-// Grab any secrets
-if (fs.existsSync(__dirname + '/secrets.json')) {
-  var secrets = require('./secrets');
-  var globalSecrets = secrets.global;
-  var environmentSpecificSecrets = secrets[environment];
-  globalConfig.secrets = _.merge(globalSecrets, environmentSpecificSecrets);
-}
+/* Grab any secrets
+var secrets = require('./secrets');
+var globalSecrets = secrets.global;
+var environmentSpecificSecrets = secrets[environment];
+globalConfig.secrets = _.merge(globalSecrets, environmentSpecificSecrets); */
 
 module.exports = function() {
   return _.merge(globalConfig, environmentSpecificConfig[environment]);

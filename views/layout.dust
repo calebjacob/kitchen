@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-  <header>
-    <title>My Thingy!</title>
+  <head>
+    <title>
+      {?title}
+        {title}
+      {:else}
+        Thing
+      {/title}
+    </title>
   
     <meta charset="UTF-8" />
-    <meta name="description" content="My description!">
+    <meta name="description" content="
+      {?description}
+        {description}
+      {:else}
+        This is my description!
+      {/description}
+    ">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0">
+
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/favicon-152.png">
+    <meta name="msapplication-TileImage" content="/images/favicon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
 
     <link rel="stylesheet" type="text/css" href="/_dist/styles.css" />
 
-    {+header}{/header}
-  </header>
+    {+head}{/head}
+  </head>
   <body>
 
-    <div id="wrap" class="container">
-      {+content}{/content}
+    <div id="wrap">
+      <div class="container">
+        {+content}{/content}
+      </div>
     </div>
 
     <script type="text/javascript" src="/_dist/scripts.js"></script>

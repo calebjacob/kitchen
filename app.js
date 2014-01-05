@@ -2,8 +2,9 @@ _ = require('lodash');
 var express = require('express');
 var config = require('./config.js')();
 var routes = require('./routes');
-var fs = require('fs');
 var cons = require('consolidate');
+var fs = require('fs');
+var deviceDetection = require('ua-parser');
 var app = express();
 
 app.engine('dust', cons.dust);

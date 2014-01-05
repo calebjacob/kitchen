@@ -55,10 +55,7 @@ module.exports = function(grunt) {
         files: ['styles/*.styl', 'styles/**/*.styl'],
         tasks: ['stylus'],
         options: {
-          atBegin: true,
-          livereload: {
-            port: 35729
-          }
+          atBegin: true
         }
       },
 
@@ -66,10 +63,7 @@ module.exports = function(grunt) {
         files: '<%= concat.dist.src %>',
         tasks: ['concat'],
         options: {
-          atBegin: true,
-          livereload: {
-            port: 35729
-          }
+          atBegin: true
         }
       },
 

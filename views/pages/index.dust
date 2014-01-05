@@ -1,0 +1,6 @@
+{>layout/}
+
+{<content}
+  <h1>{title} &amp; {description}!</h1>
+  {>"partials/thing"/}
+{/content}
