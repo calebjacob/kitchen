@@ -3,7 +3,7 @@
     return 'foo';
   };
 
-  modules.module = {
+  app.modules.module = {
     vars: {
       value: ':)'
     },

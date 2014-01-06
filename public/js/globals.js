@@ -1,2 +1,4 @@
-helpers = {};
-modules = {};
+var app = {
+  helpers: {},
+  modules: {}
+};

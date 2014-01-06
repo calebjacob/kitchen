@@ -1,9 +1,11 @@
-window.addEventListener('load', function() {
-  FastClick.attach(document.body);
+(function() {
+  window.addEventListener('load', function() {
+    FastClick.attach(document.body);
 
-  _.forEach(modules, function(module) {
-    if (module.init) {
-      module.init();
-    }
-  });
-}, false);
+    _.forEach(app.modules, function(module) {
+      if (module.init) {
+        module.init();
+      }
+    });
+  }, false);
+})();

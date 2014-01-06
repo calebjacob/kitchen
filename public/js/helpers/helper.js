@@ -1,3 +1,3 @@
-helpers.helper = function() {
+app.helpers.helper = function() {
   return 'Such a help!';
 };
