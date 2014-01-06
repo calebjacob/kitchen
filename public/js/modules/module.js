@@ -1,5 +1,5 @@
 (function() {
-  var _privateFunction = function() {
+  var privateFunction = function() {
     return 'foo';
   };
 
@@ -14,7 +14,7 @@
     },
 
     method: function() {
-      console.log('A public function returning private data: ' + _privateFunction());
+      console.log('A public function returning private data: ' + privateFunction());
     }
   };
 })();
