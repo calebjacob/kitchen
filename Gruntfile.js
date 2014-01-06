@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['public/js/globals.js', 'public/js/lib/*.js', 'public/js/toolbox/*.js', 'public/js/modules/*.js', 'public/js/index.js'],
+        src: ['public/js/globals.js', 'public/js/lib/*.js', 'public/js/helpers/*.js', 'public/js/modules/*.js', 'public/js/index.js'],
         dest: 'public/_dist/scripts.js'
       }
     },
