@@ -26,7 +26,8 @@
     "load-grunt-tasks": "*",
     "grunt-nodemon": "*",
     "grunt-concurrent": "*",
-    "grunt-contrib-clean": "*"
+    "grunt-contrib-clean": "*",
+    "grunt-shell": "*"
   },
   "engines": {
     "node": "*"
