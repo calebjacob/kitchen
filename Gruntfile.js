@@ -2,13 +2,15 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    clean: ['public/_dist'],
+
     concat: {
       options: {
         stripBanners: true
       },
       dist: {
         src: ['public/js/globals.js', 'public/js/lib/*.js', 'public/js/helpers/*.js', 'public/js/modules/*.js', 'public/js/index.js'],
-        dest: 'public/_dist/scripts.js'
+        dest: 'public/_dist/scripts.<%= pkg.version %>.js'
       }
     },
 
@@ -38,7 +40,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'public/_dist/styles.css': 'styles/main.styl'
+          'public/_dist/styles.<%= pkg.version %>.css': 'styles/main.styl'
         }
       }
     },
@@ -46,25 +48,19 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'public/_dist/scripts.js'
+        dest: '<%= concat.dist.dest %>'
       }
     },
 
     watch: {
       stylus: {
         files: ['styles/*.styl', 'styles/**/*.styl'],
-        tasks: ['stylus'],
-        options: {
-          atBegin: true
-        }
+        tasks: ['stylus']
       },
 
       js: {
         files: '<%= concat.dist.src %>',
-        tasks: ['concat'],
-        options: {
-          atBegin: true
-        }
+        tasks: ['concat']
       },
 
       icons: {
@@ -90,12 +86,15 @@ module.exports = function(grunt) {
   // Load all grunt tasks
   require('load-grunt-tasks')(grunt);
   
-  // Default task.
-  grunt.registerTask('default', ['concurrent']);
+  // Default
+  grunt.registerTask('default', ['development', 'concurrent']);
 
   // Icons
   grunt.registerTask('icons', ['webfont', 'stylus']);
+
+  // Development
+  grunt.registerTask('development', ['clean', 'concat', 'stylus']);
   
-  // Production task.
-  grunt.registerTask('production', ['concat', 'uglify', 'stylus']);
+  // Production
+  grunt.registerTask('production', ['clean', 'concat', 'uglify', 'stylus']);
 };

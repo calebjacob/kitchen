@@ -1,5 +1,6 @@
 _ = require('lodash');
 var express = require('express');
+var pkg = require('./package.json');
 var config = require('./config.js')();
 var routes = require('./routes');
 var cons = require('consolidate');
@@ -8,11 +9,14 @@ var deviceDetection = require('ua-parser');
 var app = express();
 
 app.engine('dust', cons.dust);
+app.use(express.static(__dirname + '/public'));
+app.locals({
+  config: config,
+  pkg: pkg
+});
 
 app.set('view engine', 'dust');
 app.set('views', __dirname + '/views');
-
-app.use(express.static(__dirname + '/public'));
 
 routes(app, config);
 

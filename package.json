@@ -1,5 +1,5 @@
 {
-  "name": "pie",
+  "name": "Waffles",
   "description": "Let's get this party started!",
   "version": "0.0.0",
   "dependencies": {
@@ -9,19 +9,18 @@
     "request": "~2.30.0",
     "consolidate": "~0.10.0",
     "dustjs-linkedin": "~2.2.2",
-    "ua-parser": "~0.3.3"
-  },
-  "devDependencies": {
+    "ua-parser": "~0.3.3",
     "grunt": "~0.4.2",
     "grunt-webfont": "~0.1.4",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-cssmin": "~0.6.1",
-    "grunt-contrib-stylus": "~0.11.0",
+    "grunt-contrib-stylus": "*",
     "stylus-import-tree": "~0.1.10",
     "load-grunt-tasks": "~0.2.1",
     "grunt-nodemon": "~0.1.2",
-    "grunt-concurrent": "~0.4.2"
+    "grunt-concurrent": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0"
   }
 }

@@ -1,6 +1,8 @@
 {>layout/}
 
 {<content}
-  <h1>{title} &amp; {description}!</h1>
+  <h1>{pkg.name}</h1>
+  <h2>{pkg.description}</h2>
+  <p>{body}</p>
   {>"partials/thing"/}
 {/content}
