@@ -19,7 +19,7 @@ The ultimate kitchen for making tasty Node waffles!
 First, install all dependencies:
 ```
 npm install
-grunt init
+grunt install
 ```
 
 To get working, the last thing to do is run Grunt's default task:

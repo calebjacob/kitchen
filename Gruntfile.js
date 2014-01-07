@@ -96,7 +96,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Init
-  grunt.registerTask('init', ['shell']);
+  grunt.registerTask('install', ['shell']);
   
   // Default
   grunt.registerTask('default', ['development', 'concurrent']);
