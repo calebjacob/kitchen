@@ -1,4 +1,4 @@
-Pie
-===
+Kitchen
+=======
 
-The ultimate starter kit for making delicious pie - err - web things.
+The ultimate kitchen for making tasty Node waffles!
