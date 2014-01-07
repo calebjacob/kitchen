@@ -14,12 +14,16 @@ The ultimate kitchen for making tasty Node waffles!
 * Automatic server restarts while working on the backend
 * No more tedious setup - just get right to the baking!
 
+## Prerequisites
+
+* Dependencies for grunt-webfont: https://github.com/sapegin/grunt-webfont/blob/master/Readme.md#installation
+  
+
 ## Getting Started
 
 First, install all dependencies:
 ```
 npm install
-grunt install
 ```
 
 To get working, the last thing to do is run Grunt's default task:

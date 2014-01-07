@@ -32,15 +32,6 @@ module.exports = function(grunt) {
       }
     },
 
-    shell: {
-      install: {
-        options: {
-          stdout: true
-        },
-        command: 'brew install fontforge ttfautohint'
-      }
-    },
-
     stylus: {
       compile: {
         options: {
@@ -94,9 +85,6 @@ module.exports = function(grunt) {
   
   // Load all grunt tasks
   require('load-grunt-tasks')(grunt);
-
-  // Init
-  grunt.registerTask('install', ['shell']);
   
   // Default
   grunt.registerTask('default', ['development', 'concurrent']);
