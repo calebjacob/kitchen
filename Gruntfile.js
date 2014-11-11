@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -9,7 +11,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['public/js/globals.js', 'public/js/lib/*.js', 'public/js/helpers/*.js', 'public/js/modules/*.js', 'public/js/index.js'],
+        src: ['public/js/config.js', 'public/js/lib/*.js', 'public/js/helpers/*.js', 'public/js/factories/*.js', 'public/js/directives/*.js', 'public/js/index.js'],
         dest: 'public/_dist/scripts.<%= pkg.version %>.js'
       }
     },
@@ -25,9 +27,10 @@ module.exports = function(grunt) {
 
     nodemon: {
       dev: {
+        script: 'app.js',
         options: {
-          ignoredFiles: ['node_modules/**', 'public/**', 'styles/**', 'package.json', '.gitignore', '.git/**', 'bower_components/**', 'npm_debug.log', 'README.md'],
-          file: 'app.js'
+          ext: 'js, swig',
+          ignore: ['node_modules/**', 'public/**', 'styles/**', 'package.json', '.gitignore', '.git/**', 'bower_components/**', 'npm_debug.log', 'README.md']
         }
       }
     },
@@ -77,7 +80,11 @@ module.exports = function(grunt) {
         options: {
           stylesheet: 'styl',
           relativeFontPath: '../fonts/',
-          htmlDemo: false
+          htmlDemo: false,
+          ligatures: true,
+          templateOptions: {
+            classPrefix: 'icon-'
+          }
         }
       }
     }

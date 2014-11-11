@@ -1,18 +1,17 @@
-var fs = require('fs');
-
-var environment = process.env.NODE_ENV || 'development';
-var port = process.env.PORT || 3000;
+var environment = process.env.NODE_ENV || 'local';
+var port = process.env.PORT || 1337;
 
 var globalConfig = {
   port: port,
-  environment: environment
+  environment: environment,
+  db: 'localhost:27017/test'
 };
 
 var environmentSpecificConfig = {
   production: {
     api: ''
   },
-  development: {
+  local: {
     api: 'http://localhost:' + port + '/api'
   }
 };

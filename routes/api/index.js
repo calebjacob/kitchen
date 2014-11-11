@@ -1,7 +1,14 @@
 module.exports = function(app, config) {
-  app.get('/api/thing', function(req, res) {
-    res.send({
-      "body": "The API gave me this crap right here."
+  var models = require('../../models')(app, config);
+
+  app.get('/api/example', function(req, res) {
+    var example = new models.Example({
+      name: 'Chuck Norris',
+      message: 'Howdy!'
     });
+
+    example.sayHi();
+
+    res.send(example);
   });
 };
