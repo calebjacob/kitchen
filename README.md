@@ -5,30 +5,30 @@ The ultimate kitchen for making tasty Node waffles!
 
 ## Features
 
-* Basic Express app ready for configuration and baking
+* Basic Express app ready to handle sessions, body parsing, and asset serving
 * 3 in 1 server that provides an API, full page rendering, and partials
 * Swig JS integration for fast template rendering on the server
 * Atomic design pattern via Stylus
-* Full Grunt JS integration for ultimate automation
-* SVG to icon font generation
-* Automatic server restarts while working on the backend
-* No more tedious setup - just get right to the baking!
+* Automated tasks via NPM
 
-## Prerequisites
 
-* Dependencies for grunt-webfont: https://github.com/sapegin/grunt-webfont/blob/master/Readme.md#installation
-  
 
 ## Getting Started
 
-First, install all dependencies:
+To get started, first install all dependencies via NPM:
+
 ```
 npm install
 ```
 
-To get working, the last thing to do is run Grunt's default task:
+Start the Node application and automated build tasks in development mode via NPM:
+
 ```
-grunt
+npm start
 ```
 
-This will build your JS and CSS files for development, start up your node server, and listen for changes to perform necessary Grunt tasks and server restarts.
+
+
+## Automated Tasks
+
+All automated tasks are ran via NPM and are configured in the `package.json` file. This removes the need for unnecessary complexity introduced by build systems like Grunt or Gulp. Inspired by this blog post: http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/

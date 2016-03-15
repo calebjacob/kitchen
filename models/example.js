@@ -18,7 +18,7 @@ module.exports = function(mongoose) {
   // Set up methods that this model will be able to call:
 
   schema.methods.sayHi = function() {
-    console.log('Hi!');
+    console.log('Hi! An example schema method produced this console log.');
   };
 
 

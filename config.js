@@ -20,8 +20,8 @@ var environmentSpecificConfig = {
 var secrets = require('./secrets');
 var globalSecrets = secrets.global;
 var environmentSpecificSecrets = secrets[environment];
-globalConfig.secrets = _.merge(globalSecrets, environmentSpecificSecrets); */
+globalConfig.secrets = Object.assign(globalSecrets, environmentSpecificSecrets); */
 
 module.exports = function() {
-  return _.merge(globalConfig, environmentSpecificConfig[environment]);
+  return Object.assign(globalConfig, environmentSpecificConfig[environment]);
 };

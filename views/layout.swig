@@ -23,12 +23,12 @@
     <meta name="msapplication-TileImage" content="/images/favicon-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
 
-    <link rel="stylesheet" type="text/css" href="/_dist/styles.{{pkg.version}}.css" />
+    <link rel="stylesheet" type="text/css" href="/dist/styles-{{pkg.version}}.css" />
 
     {% block head %}{% endblock %}
   </head>
   <body>
-    <div class="container">
+    <div class="container container--vertical-align">
       <header>
         <h1>{{pkg.name}}</h1>
         <h2>{{pkg.description}}</h2>
@@ -42,6 +42,7 @@
         </footer>
       {% endblock %}
     </div>
-    <script type="text/javascript" src="/_dist/scripts.{{pkg.version}}.js"></script>
+
+    <script type="text/javascript" src="/dist/scripts-{{pkg.version}}.js"></script>
   </body>
 </html>

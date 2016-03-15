@@ -1,4 +1,3 @@
-_ = require('lodash');
 var pkg = require('./package.json');
 var express = require('express');
 var session = require('express-session');

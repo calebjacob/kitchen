@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-public/_dist
+public/dist
 secrets.json
 npm_debug.log
 .nodemonignore

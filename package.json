@@ -1,35 +1,51 @@
 {
-  "name": "Kitchen",
+  "name": "kitchen",
   "description": "Let's get baking!",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Caleb Jacob <hello@calebjacob.com>",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "https://github.com/iamceege/kitchen"
   },
-  "dependencies": {
-    "body-parser": "*",
-    "compression": "*",
-    "express": "*",
-    "express-session": "*",
-    "grunt": "*",
-    "grunt-concurrent": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-stylus": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-nodemon": "*",
-    "grunt-shell": "*",
-    "grunt-webfont": "*",
-    "load-grunt-tasks": "*",
-    "lodash": "*",
-    "request": "*",
-    "stylus-import-tree": "*",
-    "swig": "*",
-    "mongoose": "*"
-  },
   "engines": {
-    "node": "*"
+    "node": "^5.0.0",
+    "npm": "^3.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "forever": "^0.15.1",
+    "mongoose": "^4.4.7",
+    "nib": "^1.1.0",
+    "onchange": "^2.1.2",
+    "parallelshell": "^2.0.0",
+    "request": "^2.69.0",
+    "stylus": "^0.54.2",
+    "swig": "^1.4.2",
+    "uglify-js": "^2.6.2"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "nodemon": "^1.9.1"
+  },
+  "scripts": {
+    "build:develop": "npm run clean && npm run css:develop && npm run js:develop",
+    "build:production": "npm run clean && npm run css:production && npm run js:production",
+    "clean": "rm -rf public/dist && mkdir public/dist",
+    "concat": "cat public/js/globals.js public/js/lib/*.js public/js/helpers/*.js public/js/modules/*.js public/js/index.js > public/dist/scripts-$npm_package_version.js",
+    "css:develop": "stylus --use nib public/styles/main.styl --out public/dist/styles-$npm_package_version.css",
+    "css:production": "stylus --compress --use nib public/styles/main.styl --out public/dist/styles-$npm_package_version.css",
+    "css:watch": "onchange 'public/styles/**/*.styl' -- npm run css:develop",
+    "env": "env",
+    "js:develop": "npm run concat",
+    "js:production": "npm run concat && npm run uglify",
+    "js:watch": "onchange 'public/js/**/*.js' -- npm run js:develop",
+    "start": "npm run start:develop",
+    "start:develop": "npm run build:develop && concurrently 'npm run css:watch' 'npm run js:watch' 'nodemon app.js'",
+    "start:production": "npm run build:production && forever stopall && NODE_ENV=production forever start app.js",
+    "uglify": "uglifyjs --compress --output public/dist/scripts-$npm_package_version.js public/dist/scripts-$npm_package_version.js"
   }
 }
