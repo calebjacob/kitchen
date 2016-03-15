@@ -6,7 +6,7 @@ The ultimate kitchen for making tasty Node waffles!
 ## Features
 
 * Basic Express app ready to handle sessions, body parsing, and asset serving
-* 3 in 1 server that provides an API, full page rendering, and partials
+* Set up to render full pages and partials
 * Swig JS integration for fast template rendering on the server
 * Atomic design pattern via Stylus
 * Automated tasks via NPM

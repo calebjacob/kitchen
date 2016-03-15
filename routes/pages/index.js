@@ -1,11 +1,12 @@
-var request = require('request');
-
-module.exports = function(app, config) {
+module.exports = function(app, config, models) {
   app.get('/', function(req, res) {
-    request.get(config.api + '/example', function(error, response, data) {
-      if (!error && response.statusCode == 200) {
-        res.render('pages/index', JSON.parse(data));
-      }
+    var example = new models.Example({
+      name: 'Chuck Norris',
+      message: 'Bake a cake, save a life.'
     });
+
+    example.sayHi();
+
+    res.render('pages/index', example);
   });
 };

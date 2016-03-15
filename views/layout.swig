@@ -35,12 +35,6 @@
       </header>
       
       {% block content %}{% endblock %}
-
-      {% block footer %}
-        <footer>
-          <p>The end.</p>
-        </footer>
-      {% endblock %}
     </div>
 
     <script type="text/javascript" src="/dist/scripts-{{pkg.version}}.js"></script>

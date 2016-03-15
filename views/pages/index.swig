@@ -1,7 +1,6 @@
 {% extends '../layout.swig' %}
 
 {% block content %}
-  <p><b>API:</b> "{{message}}" - {{name}}</p>
-
-  {% include "../partials/partial.swig" %}
+  <p>"{{message}}" - {{name}}</p>
+  <p>Here's a <a href="/partials/example">link</a>.</p>
 {% endblock %}

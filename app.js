@@ -1,12 +1,13 @@
-var pkg = require('./package.json');
 var express = require('express');
+var app = express();
+var pkg = require('./package.json');
 var session = require('express-session');
 var compression = require('compression');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 var config = require('./config.js')();
-var routes = require('./routes');
-var app = express();
+var models = require('./models')(app, config);
+var routes = require('./routes')(app, config, models);
 
 
 
@@ -58,7 +59,7 @@ app.locals = {
 
 // Configure all routes:
 
-routes(app, config);
+// routes(app, config);
 
 
 
