@@ -15,14 +15,28 @@ The ultimate kitchen for making tasty Node waffles!
 
 ## Getting Started
 
-To get started, first install all dependencies via NPM:
+First, make sure you have the latest versions of Node, NPM, and Mongo DB installed on your machine. The easiest way to do this is with [Homebrew](http://brew.sh/):
+```
+brew update
+brew install node
+brew install mongodb
+```
 
+Or if you already had them installed, make sure you upgrade them:
+```
+brew update
+brew upgrade node
+brew upgrade mongodb
+```
+
+After Mongo DB has been installed, make sure you start the `mongod` service and double check that a `test` database exists - or go ahead and create a new database for your app. If you do create a new database, make sure you update the `config.json` to point to your new database.
+
+Install all dependencies via NPM:
 ```
 npm install
 ```
 
 Start the Node application and automated build tasks in development mode via NPM:
-
 ```
 npm start
 ```
