@@ -42,9 +42,26 @@ app.use(session({
 
 // Configure app to use Swig as default template/render engine:
 
+swig.setTag('icon', function (str, line, parser, types, options, swig) {
+  parser.on(types.STRING, function (token) {
+    var string = token.match.replace(/["']/g, '');
+    this.out.push(string);
+  });
+
+  return true;
+}, function (compiler, args, content, parents, options, blockName) {
+  console.log(args[0]);
+
+  return '_output = "<svg></svg>";';
+}, false, false);
+
 app.engine('swig', swig.renderFile);
 app.set('view engine', 'swig');
 app.set('views', __dirname + '/views');
+
+console.log(swig.render('{% icon "broncos" %}'));
+
+
 
 
 
