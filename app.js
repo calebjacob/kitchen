@@ -24,7 +24,6 @@ app.use(express.static(__dirname + '/public'));
 
 
 
-
 // Configure session support:
 
 app.use(session({
@@ -50,18 +49,24 @@ swig.setTag('icon', function (str, line, parser, types, options, swig) {
 
   return true;
 }, function (compiler, args, content, parents, options, blockName) {
-  console.log(args[0]);
+  var iconName = args[0];
+  var filePath = __dirname + '/public/images/icons/' + iconName + '.svg';
+  var svg = swig.render('{% include "' + filePath + '" %}');
+  svg = svg.replace(/\r?\n|\r/g, '');
 
-  return '_output = "<svg></svg>";';
+  return "_output += '" + svg + "';";
 }, false, false);
+
+swig.setDefaults({ loader: swig.loaders.fs(__dirname + '/views') });
 
 app.engine('swig', swig.renderFile);
 app.set('view engine', 'swig');
 app.set('views', __dirname + '/views');
 
-console.log(swig.render('{% icon "broncos" %}'));
+console.log(swig.render('{% icon "exclamation" %}'));
 
-
+// var foobar = 'Bob';
+// console.log('Hello ${foobar}');
 
 
 
@@ -71,12 +76,6 @@ app.locals = {
   config: config,
   pkg: pkg
 };
-
-
-
-// Configure all routes:
-
-// routes(app, config);
 
 
 
