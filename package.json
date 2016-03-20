@@ -44,7 +44,7 @@
     "js:production": "npm run concat && npm run uglify",
     "js:watch": "onchange 'public/js/**/*.js' -- npm run js:develop",
     "start": "npm run start:develop",
-    "start:develop": "npm run build:develop && concurrently 'npm run css:watch' 'npm run js:watch' 'nodemon --ext js,swig,json --ignore public/ app.js'",
+    "start:develop": "npm run build:develop && concurrently 'npm run css:watch' 'npm run js:watch' 'nodemon --ext js,swig,svg,json --ignore public/js/ app.js'",
     "start:production": "npm run build:production && forever stopall && NODE_ENV=production forever start app.js",
     "uglify": "uglifyjs --compress --output public/dist/scripts-$npm_package_version.js public/dist/scripts-$npm_package_version.js"
   }
