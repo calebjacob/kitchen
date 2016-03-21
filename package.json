@@ -24,6 +24,7 @@
     "parallelshell": "^2.0.0",
     "request": "^2.69.0",
     "stylus": "^0.54.2",
+    "svgo": "^0.6.3",
     "swig": "^1.4.2",
     "uglify-js": "^2.6.2"
   },
@@ -32,19 +33,21 @@
     "nodemon": "^1.9.1"
   },
   "scripts": {
-    "build:develop": "npm run clean && npm run css:develop && npm run js:develop",
-    "build:production": "npm run clean && npm run css:production && npm run js:production",
+    "build:develop": "npm run clean && npm run css:develop && npm run js:develop && npm run icons",
+    "build:production": "npm run clean && npm run css:production && npm run js:production && npm run icons",
     "clean": "rm -rf public/dist && mkdir public/dist",
     "concat": "cat public/js/globals.js public/js/lib/*.js public/js/helpers/*.js public/js/modules/*.js public/js/index.js > public/dist/scripts-$npm_package_version.js",
     "css:develop": "stylus --use nib public/styles/main.styl --out public/dist/styles-$npm_package_version.css",
     "css:production": "stylus --compress --use nib public/styles/main.styl --out public/dist/styles-$npm_package_version.css",
     "css:watch": "onchange 'public/styles/**/*.styl' -- npm run css:develop",
     "env": "env",
+    "icons": "svgo -f ./public/images/icons -o ./public/dist/icons --config=./svgo.yml",
+    "icons:watch": "onchange 'public/images/icons/*.svg' -- npm run icons",
     "js:develop": "npm run concat",
     "js:production": "npm run concat && npm run uglify",
     "js:watch": "onchange 'public/js/**/*.js' -- npm run js:develop",
     "start": "npm run start:develop",
-    "start:develop": "npm run build:develop && concurrently 'npm run css:watch' 'npm run js:watch' 'nodemon --ext js,swig,svg,json --ignore public/js/ app.js'",
+    "start:develop": "npm run build:develop && concurrently 'npm run css:watch' 'npm run js:watch' 'npm run icons:watch' 'nodemon --ext js,swig,svg,json --ignore public/js/ app.js'",
     "start:production": "npm run build:production && forever stopall && NODE_ENV=production forever start app.js",
     "uglify": "uglifyjs --compress --output public/dist/scripts-$npm_package_version.js public/dist/scripts-$npm_package_version.js"
   }
