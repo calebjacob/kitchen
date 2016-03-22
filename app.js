@@ -52,6 +52,8 @@ app.engine('swig', swig.renderFile);
 app.set('view engine', 'swig');
 app.set('views', __dirname + '/views');
 
+console.log(swig.render('{% icon "star" %}'));
+
 
 
 // Setting global variables that are always accessible inside of views:

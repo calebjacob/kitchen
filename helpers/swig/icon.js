@@ -13,6 +13,7 @@ exports.compile = function (compiler, args, content, parents, options, blockName
   var iconName = args[0];
   var filePath = '../public/dist/icons/' + iconName + '.svg';
   var svg = swig.render('{% include "' + filePath + '" %}');
+  svg = svg.replace(/<svg/, '<svg class="icon icon--' + iconName + '" role="img" aria-hidden="true" version="1.1"');
 
   return "_output += '" + svg + "';";
 };

@@ -41,7 +41,7 @@
     "css:production": "stylus --compress --use nib ui/styles/main.styl --out public/dist/styles-$npm_package_version.css",
     "css:watch": "onchange 'ui/styles/' -- npm run css:develop",
     "env": "env",
-    "icons": "svgo -f ui/icons -o public/dist/icons --config=./svgo.yml",
+    "icons": "svgo -f ui/icons -o public/dist/icons",
     "icons:watch": "onchange 'ui/icons/' -- npm run icons",
     "js:develop": "npm run concat",
     "js:production": "npm run concat && npm run uglify",
