@@ -12,7 +12,7 @@ var routes = require('./routes')(app, config, models);
 
 
 
-// Configure basic app settings and functionality:
+// Configure general app settings and functionality:
 
 app.use(compression());
 
@@ -51,8 +51,6 @@ swig.setTag('icon', helpers.swig.icon.parse, helpers.swig.icon.compile, helpers.
 app.engine('swig', swig.renderFile);
 app.set('view engine', 'swig');
 app.set('views', __dirname + '/views');
-
-console.log(swig.render('{% icon "star" %}'));
 
 
 
