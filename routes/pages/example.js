@@ -2,7 +2,7 @@ module.exports = function(router, models) {
   router.get('/', function(req, res) {
     var example = new models.Example({
       name: 'Chuck Norris',
-      message: 'Bake a cake, save a life.'
+      message: 'Enjoy a waffle or two today.'
     });
 
     example.sayHi();
