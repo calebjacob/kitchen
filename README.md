@@ -6,6 +6,7 @@ The ultimate kitchen for making tasty Node waffles!
 ## Features
 
 * Basic Express app ready to handle sessions, body parsing, and asset serving
+* Configured for Mongo DB via Mongoose
 * Set up to render full pages and partials
 * Swig JS integration for fast template rendering on the server
 * Atomic design pattern via Stylus

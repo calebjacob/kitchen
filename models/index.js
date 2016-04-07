@@ -1,19 +1,37 @@
-module.exports = function(app, config) {
-  var mongoose = require('mongoose');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var config = require('config');
 
 
 
-  // Connect to the database
+module.exports = function(app) {
+  // Connect to the database:
   
-  mongoose.connect(config.db);
+  mongoose.connect(config.databaseUrl);
   var connection = mongoose.connection;
+
+  connection.once('open', function() {
+    // Configure session support:
+
+    app.use(session({
+      secret: config.sessionSecret,
+      resave: true,
+      saveUninitialized: true,
+      cookie: {
+        path: '/',
+        httpOnly: true,
+        secure: false
+      },
+      store: new MongoStore({
+        url: config.databaseUrl,
+        autoReconnect: true
+      })
+    }));
+  });
 
   connection.on('error', function(error) {
     console.log(error);
-  });
-
-  connection.once('open', function() {
-    console.log('Mongo is a go!');
   });
 
 

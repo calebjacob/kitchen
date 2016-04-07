@@ -1,9 +1,3 @@
-module.exports = function(app, config) {
-  var helpers = {};
-
-  helpers.swig = {
-    icon: require('./swig/icon.js')
-  };
-
-  return helpers;
+module.exports = {
+  swigIconTag: require('./swig-icon-tag')
 };

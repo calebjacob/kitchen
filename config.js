@@ -3,25 +3,23 @@ var port = process.env.PORT || 1337;
 
 var globalConfig = {
   port: port,
-  environment: environment,
-  db: 'localhost:27017/test'
+  environment: environment
 };
 
 var environmentSpecificConfig = {
   production: {
-    api: ''
+    databaseUrl: '',
+    sessionSecret: ''
   },
+
   local: {
-    api: 'http://localhost:' + port + '/api'
+    databaseUrl: 'mongodb://localhost:27017/test',
+    sessionSecret: 'carlos spicy weiner'
   }
 };
 
-/* Grab any secrets
-var secrets = require('./secrets');
-var globalSecrets = secrets.global;
-var environmentSpecificSecrets = secrets[environment];
-globalConfig.secrets = Object.assign(globalSecrets, environmentSpecificSecrets); */
+var config = Object.assign(globalConfig, environmentSpecificConfig[environment]);
 
-module.exports = function() {
-  return Object.assign(globalConfig, environmentSpecificConfig[environment]);
-};
+
+
+module.exports = config;
