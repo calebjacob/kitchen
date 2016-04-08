@@ -1,13 +1,9 @@
-(function() {
-  window.addEventListener('load', function() {
-    // Remove 300ms click delay on all touch devices
+(function(helpers) {
+  window.addEventListener('DOMContentLoaded', function() {
+    // Remove 300ms click delay on all touch devices:
     FastClick.attach(document.body);
 
-    // Instantiate all modules
-    _.forEach(app.modules, function(module) {
-      if (module.init) {
-        module.init();
-      }
-    });
+    // Initialize all components:
+    helpers.initializeComponents(document.body);
   }, false);
-})();
+})(window.app.helpers);

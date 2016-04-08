@@ -38,7 +38,7 @@
     "build:develop": "npm run clean && npm run css:develop && npm run js:develop && npm run icons",
     "build:production": "npm run clean && npm run css:production && npm run js:production && npm run icons",
     "clean": "rm -rf public/dist && mkdir public/dist",
-    "concat": "cat ui/js/globals.js ui/js/lib/*.js ui/js/helpers/*.js ui/js/modules/*.js ui/js/index.js > public/dist/scripts-$npm_package_version.js",
+    "concat": "cat ui/js/config.js ui/js/lib/*.js ui/js/helpers/*.js ui/js/services/*.js ui/js/components/*.js ui/js/index.js > public/dist/scripts-$npm_package_version.js",
     "css:develop": "stylus --use nib ui/styles/main.styl --out public/dist/styles-$npm_package_version.css",
     "css:production": "stylus --compress --use nib ui/styles/main.styl --out public/dist/styles-$npm_package_version.css",
     "css:watch": "onchange 'ui/styles/' -- npm run css:develop",
