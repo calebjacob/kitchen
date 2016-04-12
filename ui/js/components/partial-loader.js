@@ -2,8 +2,8 @@
   components.partialLoader = function partialLoader(element) {
     var component = this;
     var loadButton = helpers.getElement(element, 'loader-button');
-    var partialWrapper = helpers.getElement(element, 'wrapper');
     var partialName = element.dataset.partialName;
+    var partialWrapper = helpers.getElement(element, 'wrapper');
 
 
 

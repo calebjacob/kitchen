@@ -1,5 +1,3 @@
-module.exports = function(router, models) {
-  router.get('/partials/example', function(req, res) {
-    res.render('partials/example');
-  });
+module.exports = function(req, res, next, models) {
+  res.render('partials/example');
 };

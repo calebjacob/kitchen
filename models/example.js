@@ -8,17 +8,20 @@ module.exports = function(mongoose) {
     },
 
     message: {
-      type: String,
-      validate: /.+/
+      type: String
+    },
+
+    isAwesome: {
+      type: Boolean
     }
   });
 
 
 
-  // Set up methods that this model will be able to call:
+  // Set up schema methods:
 
-  schema.methods.sayHi = function() {
-    console.log('Hi! An example schema method produced this console log.');
+  schema.methods.exampleMessage = function() {
+    return 'Hi! An example schema method produced this console log.';
   };
 
 

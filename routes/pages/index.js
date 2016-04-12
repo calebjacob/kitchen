@@ -1,3 +1,5 @@
 module.exports = function(routers, models) {
-  require('./example')(routers.public, models);
+  routers.public.get('/', function(req, res, next) {
+    require('./example')(req, res, next, models);
+  });
 };

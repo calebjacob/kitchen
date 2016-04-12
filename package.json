@@ -31,8 +31,13 @@
     "uglify-js": "^2.6.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "concurrently": "^2.0.0",
-    "nodemon": "^1.9.1"
+    "mocha": "^2.4.5",
+    "mockgoose": "^6.0.0",
+    "node-mocks-http": "^1.5.2",
+    "nodemon": "^1.9.1",
+    "sinon": "^1.17.3"
   },
   "scripts": {
     "build:develop": "npm run clean && npm run css:develop && npm run js:develop && npm run icons",
@@ -53,6 +58,7 @@
     "start:production": "npm run build:production && forever stopall && NODE_ENV=production forever start app.js",
     "uglify": "uglifyjs --compress --output public/dist/scripts-$npm_package_version.js public/dist/scripts-$npm_package_version.js",
     "nodemon": "nodemon --ext js,swig,svg,json --ignore ui/js/ --ignore ui/icons/ --ignore public/dist/*.js app.js",
-    "nodemon:help": "nodemon -h"
+    "nodemon:help": "nodemon -h",
+    "test": "mocha --recursive -w tests"
   }
 }
