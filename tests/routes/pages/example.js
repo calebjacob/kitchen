@@ -5,29 +5,24 @@ var renderSpy;
 var mockedModels = {
   Example: function Example() {}
 };
+var route = requireAppRoot('routes/pages/example.js');
 
 
 
-describe('Route - /', function() {
+describe('Route - GET - /', function() {
   beforeEach(function() {
     req = nodeMocksHttp.createRequest();
     res = nodeMocksHttp.createResponse();
     renderSpy = sinon.spy(res, 'render');
+
+    route(req, res, next, mockedModels);
   });
 
-  describe('GET', function() {
-    var route = requireAppRoot('routes/pages/example.js');
+  it('renders a view', function() {
+    expect(renderSpy.getCall(0).args[0]).to.equal('pages/index');
+  });
 
-    beforeEach(function() {
-      route(req, res, next, mockedModels);
-    });
-
-    it('renders a view', function() {
-      expect(renderSpy.getCall(0).args[0]).to.equal('pages/index');
-    });
-
-    it('passes generated example model to view', function() {
-      expect(renderSpy.getCall(0).args[1] instanceof mockedModels.Example).to.be.true;
-    });
+  it('passes generated example model to view', function() {
+    expect(renderSpy.getCall(0).args[1] instanceof mockedModels.Example).to.be.true;
   });
 });

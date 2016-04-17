@@ -3,8 +3,7 @@ module.exports = function(mongoose) {
 
   var schema = mongoose.Schema({
     name: {
-      type: String,
-      validate: /^[a-zA-Z\u00C0-\u017F0-9\s,\-']+$/
+      type: String
     },
 
     message: {
@@ -21,7 +20,7 @@ module.exports = function(mongoose) {
   // Set up schema methods:
 
   schema.methods.exampleMessage = function() {
-    return 'Hi! An example schema method produced this console log.';
+    return 'Hi! An example schema method produced this message.';
   };
 
 

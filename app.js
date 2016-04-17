@@ -46,13 +46,11 @@ app.set('views', `${__dirname}/views`);
 
 
 
-// Configure Mongoose and connect to the database:
-  
+// Configure Mongoose, connect to the database, and support sessions:
+
 mongoose.Promise = Promise;
 mongoose.connect(config.databaseUrl);
 mongoose.connection.once('open', function() {
-  // Configure session support:
-
   app.use(session({
     secret: config.sessionSecret,
     resave: true,

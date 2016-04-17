@@ -12,7 +12,7 @@ describe('Model - Example', function() {
     example = new models.Example(data);
   });
 
-  describe('save()', function() {
+  describe('example.save()', function() {
     it('should be able to create a record', function(done) {
       example
         .save()
@@ -29,7 +29,7 @@ describe('Model - Example', function() {
     });
   });
 
-  describe('exampleMessage()', function() {
+  describe('example.exampleMessage()', function() {
     it('should return an awesome message', function() {
       expect(example.exampleMessage().length).to.be.above(1);
     });

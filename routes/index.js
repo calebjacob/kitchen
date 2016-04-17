@@ -11,17 +11,9 @@ module.exports = function(app, models) {
 
 
 
-  // Example router middleware:
+  // Require all middleware & routes:
 
-  routers.public.use(function(req, res, next) {
-    next();
-    console.log('A public route is being accessed.', req.url);
-  });
-
-
-
-  // Require all routes:
-
+  require('./middleware')(routers, models);
   require('./pages')(routers, models);
   require('./partials')(routers, models);
 
