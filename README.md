@@ -54,6 +54,8 @@ All automated tasks are ran via NPM and are configured in the `package.json` fil
 
 The easiest way to get any Node app running is to use Dokku. Spin up a Dokku droplet on Digital Ocean: [https://www.digitalocean.com/products/one-click-apps/dokku/]()
 
+**Note:** *Droplet must have at least 1GB of RAM or else the build will fail.*
+
 Here are some miscellaneous tips:
 
 ##### Add Git Remote to Deploy:
