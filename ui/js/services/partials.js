@@ -1,6 +1,6 @@
 (function(services, helpers) {
   function fetchPartial(name) {
-    var path = `/partials/${name}`;
+    var path = '/partials/' + name;
 
     return new Promise(function(resolve, reject) {
       fetch(path)
