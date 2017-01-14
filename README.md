@@ -46,13 +46,13 @@ npm start
 
 ## Automated Tasks
 
-All automated tasks are ran via NPM and are configured in the `package.json` file. This removes the need for unnecessary complexity introduced by build systems like Grunt or Gulp. Inspired by this blog post: [http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/](How To Use NPM as a Build Tool)
+All automated tasks are ran via NPM and are configured in the `package.json` file. This removes the need for unnecessary complexity introduced by build systems like Grunt or Gulp. Inspired by this blog post: [How To Use NPM as a Build Tool](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 
 
 
 ## Deploying With Dokku
 
-The easiest way to get any Node app running is to use Dokku. Spin up a Dokku droplet on Digital Ocean: [https://www.digitalocean.com/products/one-click-apps/dokku/](Dokku Droplet by Digital Ocean)
+The easiest way to get any Node app running is to use Dokku. Spin up a Dokku droplet on Digital Ocean: [Dokku Droplet by Digital Ocean](https://www.digitalocean.com/products/one-click-apps/dokku/)
 
 **Note:** *Droplet must have at least 1GB of RAM or else the build will fail.*
 
@@ -73,7 +73,7 @@ dokku domains:add my-app-name mydomain.com
 
 ##### Configure SSL/HTTPS Via Let's Encrypt:
 
-Read documentation here: [https://github.com/dokku/dokku-letsencrypt](Dokku - Let's Encrypt)
+Read documentation here: [Dokku - Let's Encrypt](https://github.com/dokku/dokku-letsencrypt)
 
 ##### App Crash Restart Policy:
 
@@ -90,4 +90,4 @@ docker logs <container ID>
 
 ##### More Dokku Documentation:
 
-For info on setting up other plugins (databases, etc), read this documentation: [http://dokku.viewdocs.io/dokku/deployment/application-deployment/](Dokku - Application Deployment)
+For info on setting up other plugins (databases, etc), read this documentation: [Dokku - Application Deployment](http://dokku.viewdocs.io/dokku/deployment/application-deployment/)
