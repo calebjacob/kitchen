@@ -1,5 +1,5 @@
 var environment = process.env.NODE_ENV || 'local';
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || '1337';
 
 var globalConfig = {
   port: port,
@@ -7,15 +7,8 @@ var globalConfig = {
 };
 
 var environmentSpecificConfig = {
-  production: {
-    databaseUrl: '',
-    sessionSecret: ''
-  },
-
-  local: {
-    databaseUrl: 'mongodb://localhost:27017/test',
-    sessionSecret: 'carlos spicy weiner'
-  }
+  local: {},
+  production: {}
 };
 
 var config = Object.assign(globalConfig, environmentSpecificConfig[environment]);

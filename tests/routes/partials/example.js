@@ -1,21 +1,23 @@
 var req;
 var res;
-var next = function() {};
-var renderSpy;
-var route = requireAppRoot('routes/partials/example.js');
+var next = sinon.spy(function next() {});
+var example = require(`${appRoot}/routes/partials/example.js`);
 
 
 
-describe('Route - GET - /partials/example', function() {
+describe('partials - example()', function() {
   beforeEach(function() {
+    next.reset();
+
     req = nodeMocksHttp.createRequest();
     res = nodeMocksHttp.createResponse();
-    renderSpy = sinon.spy(res, 'render');
 
-    route(req, res, next);
+    sinon.spy(res, 'render');
+
+    example(req, res, next);
   });
 
   it('renders a view', function() {
-    expect(renderSpy.getCall(0).args[0]).to.equal('partials/example');
+    sinon.assert.calledWith(res.render, 'partials/example');
   });
 });

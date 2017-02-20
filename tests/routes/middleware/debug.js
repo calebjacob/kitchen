@@ -1,22 +1,19 @@
 var req;
 var res;
 var next = sinon.spy(function next() {});
-var example = require(`${appRoot}/routes/middleware/example.js`);
+var debug = require(`${appRoot}/routes/middleware/debug.js`);
+var error = 'This is the error';
 
 
 
-describe('middleware - example()', function() {
+describe('middleware - debug()', function() {
   beforeEach(function() {
     next.reset();
 
     req = nodeMocksHttp.createRequest();
     res = nodeMocksHttp.createResponse();
 
-    example(req, res, next);
-  });
-
-  it('sets foobar to a string', function() {
-    expect(req.foobar).to.equal('This is an example');
+    debug(error, req, res, next);
   });
 
   it('calls next', function() {

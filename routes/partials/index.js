@@ -1,11 +1,9 @@
-var routes = {
+var partials = {
   example: require('./example')
 };
 
 
 
-module.exports = function(routers, models) {
-  routers.public.get('/partials/example', function(req, res, next) {
-    routes.example(req, res, next, models);
-  });
+module.exports = function(routers) {
+  routers.public.get('/partials/example', partials.example);
 };

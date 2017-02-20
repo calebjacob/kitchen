@@ -1,7 +1,7 @@
 {
   "name": "kitchen",
   "description": "Let's get baking!",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Caleb Jacob <hello@calebjacob.com>",
   "license": "BSD-3-Clause",
   "repository": {
@@ -13,30 +13,29 @@
     "npm": "^3.0.0"
   },
   "dependencies": {
-    "app-module-path": "^1.0.6",
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
-    "connect-mongo": "^1.1.0",
+    "concurrently": "^3.3.0",
     "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "mongoose": "^4.4.7",
+    "mocha": "^3.2.0",
     "nib": "^1.1.0",
-    "onchange": "^2.1.2",
+    "onchange": "^3.2.0",
     "parallelshell": "^2.0.0",
+    "proxyquire": "^1.7.11",
     "request": "^2.69.0",
-    "stylus": "^0.54.2",
-    "svgo": "^0.6.3",
-    "swig": "^1.4.2",
-    "uglify-js": "^2.6.2"
+    "stylus": "^0.54.0",
+    "svgo": "^0.7.0",
+    "swig": "^1.4.0",
+    "swig-templates": "^2.0.2",
+    "uglify-js": "^2.6.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "concurrently": "^2.0.0",
-    "mocha": "^2.4.5",
-    "mockgoose": "^6.0.0",
-    "node-mocks-http": "^1.5.2",
-    "nodemon": "^1.9.1",
-    "sinon": "^1.17.3"
+    "mocha": "^2.4.0",
+    "node-mocks-http": "^1.5.0",
+    "nodemon": "^1.9.0",
+    "sinon": "^1.17.0"
   },
   "scripts": {
     "build:develop": "npm run clean && npm run css:develop && npm run js:develop && npm run icons",
@@ -54,9 +53,9 @@
     "js:watch": "onchange 'ui/js/' -- npm run js:develop",
     "start": "npm run start:develop",
     "start:develop": "npm run build:develop && concurrently 'npm run css:watch' 'npm run js:watch' 'npm run icons:watch' 'npm run nodemon'",
-    "start:production": "npm run build:production && NODE_ENV=production node app.js",
+    "start:production": "npm run build:production && NODE_ENV=production node index.js",
     "uglify": "uglifyjs --compress --output public/dist/scripts-$npm_package_version.js public/dist/scripts-$npm_package_version.js",
-    "nodemon": "nodemon --ext js,swig,svg,json --ignore ui/js/ --ignore ui/icons/ --ignore public/dist/*.js app.js",
+    "nodemon": "nodemon --ext js,swig,svg,json --ignore ui/js/ --ignore ui/icons/ --ignore public/dist/*.js index.js",
     "nodemon:help": "nodemon -h",
     "test": "mocha --recursive -w tests"
   }

@@ -1,28 +1,23 @@
 var req;
 var res;
-var next = function() {};
-var renderSpy;
-var mockedModels = {
-  Example: function Example() {}
-};
-var route = requireAppRoot('routes/pages/example.js');
+var next = sinon.spy(function next() {});
+var example = require(`${appRoot}/routes/pages/example.js`);
 
 
 
-describe('Route - GET - /', function() {
+describe('pages - example()', function() {
   beforeEach(function() {
+    next.reset();
+
     req = nodeMocksHttp.createRequest();
     res = nodeMocksHttp.createResponse();
-    renderSpy = sinon.spy(res, 'render');
 
-    route(req, res, next, mockedModels);
+    sinon.spy(res, 'render');
+
+    example(req, res, next);
   });
 
   it('renders a view', function() {
-    expect(renderSpy.getCall(0).args[0]).to.equal('pages/index');
-  });
-
-  it('passes generated example model to view', function() {
-    expect(renderSpy.getCall(0).args[1] instanceof mockedModels.Example).to.be.true;
+    sinon.assert.calledWith(res.render, 'pages/example');
   });
 });

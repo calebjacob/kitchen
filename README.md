@@ -5,8 +5,7 @@ The ultimate kitchen for making tasty Node waffles!
 
 ## Features
 
-* Basic Express app ready to handle sessions, body parsing, and asset serving
-* Configured for Mongo DB via Mongoose
+* Basic Express app ready to handle routes, body parsing, and asset serving
 * Set up to render full pages and partials
 * Swig JS integration for fast template rendering on the server
 * Atomic design pattern via Stylus
@@ -16,28 +15,16 @@ The ultimate kitchen for making tasty Node waffles!
 
 ## Getting Started
 
-First, make sure you have the latest versions of Node, NPM, and Mongo DB installed on your machine. The easiest way to do this is with [Homebrew](http://brew.sh/):
-```
-brew update
-brew install node
-brew install mongodb
-```
+First, make sure you have the latest versions of Node and NPM installed on your machine. The easiest way to do this is with [Homebrew](http://brew.sh/) or [NVM](https://github.com/creationix/nvm).
 
-Or if you already had them installed, make sure you upgrade them:
-```
-brew update
-brew upgrade node
-brew upgrade mongodb
-```
+Then install all dependencies via NPM:
 
-After Mongo DB has been installed, make sure you start the `mongod` service and double check that a `test` database exists - or go ahead and create a new database for your app. If you do create a new database, make sure you update the `config.json` to point to your new database.
-
-Install all dependencies via NPM:
 ```
 npm install
 ```
 
-Start the Node application and automated build tasks in development mode via NPM:
+Start the Node application and automated build tasks in local development mode via NPM:
+
 ```
 npm start
 ```
